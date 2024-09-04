@@ -1,0 +1,16 @@
+<!-- templates/adicionar_playlist.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Playlist</title>
+</head>
+<body>
+    <h1>Adicionar Playlist</h1>
+    <form method="post">
+        Nome: <input type="text" name="nome"><br>
+        <input type="submit" value="Salvar">
+    </form>
+    <a href="{{ url_for('listar_playlists') }}">Voltar à lista de playlists</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- templates/musicas_playlist.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Músicas na Playlist {{ playlist[0] }}</title>
+</head>
+<body>
+    <h1>Músicas na Playlist: {{ playlist[0] }}</h1>
+    <a href="{{ url_for('adicionar_musica_playlist', playlist_id=playlist_id) }}">Adicionar Música à Playlist</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Artista</th>
+        </tr>
+        {% for musica in musicas %}
+        <tr>
+            <td>{{ musica[0] }}</td>
+            <td>{{ musica[1] }}</td>
+            <td>{{ musica[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('listar_playlists') }}">Voltar para Playlists</a>
+</body>
+</html>

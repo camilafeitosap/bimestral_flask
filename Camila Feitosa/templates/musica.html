@@ -1,0 +1,17 @@
+<!-- templates/musica.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if musica %}Editar{% else %}Adicionar{% endif %} Música</title>
+</head>
+<body>
+    <h1>{% if musica %}Editar{% else %}Adicionar{% endif %} Música</h1>
+    <form method="post">
+        Título: <input type="text" name="titulo" value="{{ musica[1] if musica else '' }}"><br>
+        Artista: <input type="text" name="artista" value="{{ musica[2] if musica else '' }}"><br>
+        <input type="submit" value="Salvar">
+    </form>
+    <a href="{{ url_for('index') }}">Voltar à lista de músicas</a>
+</body>
+</html>

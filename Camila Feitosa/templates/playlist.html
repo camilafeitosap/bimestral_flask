@@ -1,0 +1,34 @@
+<!-- templates/playlist.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Playlists</title>
+</head>
+<body>
+    <h1>Lista de Playlists</h1>
+    <a href="{{ url_for('adicionar_playlist') }}">Adicionar Nova Playlist</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+        {% for playlist in playlists %}
+        <tr>
+            <td>{{ playlist[0] }}</td>
+            <td>{{ playlist[1] }}</td>
+            <td>
+                <a href="{{ url_for('listar_musicas_playlist', playlist_id=playlist[0]) }}">Ver Músicas</a>
+                <a href="{{ url_for('editar_playlist', id=playlist[0]) }}">Editar</a>
+                <form action="{{ url_for('deletar_playlist', id=playlist[0]) }}" method="post" style="display:inline;">
+                    <button type="submit">Deletar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('index') }}">Ver Músicas</a>
+</body>
+</html>

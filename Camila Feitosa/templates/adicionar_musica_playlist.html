@@ -1,0 +1,22 @@
+<!-- templates/adicionar_musica_playlist.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Música à Playlist</title>
+</head>
+<body>
+    <h1>Adicionar Música à Playlist</h1>
+    <form method="post">
+        <label for="musica_id">Selecione uma música:</label>
+        <select name="musica_id" id="musica_id">
+            {% for musica in musicas %}
+            <option value="{{ musica[0] }}">{{ musica[1] }} - {{ musica[2] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Adicionar Música">
+    </form>
+    <a href="{{ url_for('listar_musicas_playlist', playlist_id=playlist_id) }}">Voltar para a Playlist</a>
+</body>
+</html>
